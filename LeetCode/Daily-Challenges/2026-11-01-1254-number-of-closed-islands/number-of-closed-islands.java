@@ -1,47 +1,32 @@
 class Solution {
-    public int closedIsland(int[][] grid) {
-        int m = grid.length;
-        int n = grid[0].length;
-        int count = 0;
+    public int countDaysTogether(String arriveAlice, String leaveAlice,
+                                 String arriveBob, String leaveBob) {
 
-        // Remove all islands connected to the boundary
-        for (int i = 0; i < m; i++) {
-            dfs(grid, i, 0);
-            dfs(grid, i, n - 1);
-        }
+        int[] days = {31, 28, 31, 30, 31, 30,
+                      31, 31, 30, 31, 30, 31};
 
-        for (int j = 0; j < n; j++) {
-            dfs(grid, 0, j);
-            dfs(grid, m - 1, j);
-        }
+        int a1 = convert(arriveAlice, days);
+        int a2 = convert(leaveAlice, days);
 
-        // Count remaining closed islands
-        for (int i = 1; i < m - 1; i++) {
-            for (int j = 1; j < n - 1; j++) {
-                if (grid[i][j] == 0) {
-                    count++;
-                    dfs(grid, i, j);
-                }
-            }
-        }
+        int b1 = convert(arriveBob, days);
+        int b2 = convert(leaveBob, days);
 
-        return count;
+        int start = Math.max(a1, b1);
+        int end = Math.min(a2, b2);
+
+        return Math.max(0, end - start + 1);
     }
 
-    private void dfs(int[][] grid, int i, int j) {
-        int m = grid.length;
-        int n = grid[0].length;
+    private int convert(String date, int[] days) {
+        int month = Integer.parseInt(date.substring(0, 2));
+        int day = Integer.parseInt(date.substring(3, 5));
 
-        if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == 1) {
-            return;
+        int total = day;
+
+        for (int i = 0; i < month - 1; i++) {
+            total += days[i];
         }
 
-        // Mark visited
-        grid[i][j] = 1;
-
-        dfs(grid, i + 1, j);
-        dfs(grid, i - 1, j);
-        dfs(grid, i, j + 1);
-        dfs(grid, i, j - 1);
+        return total;
     }
 }
