@@ -12,9 +12,11 @@
 
 - **Platform:** LeetCode
 - **Language:** java
-- **Runtime:** 0 ms
-- **Memory:** 39.5 MB
-- **Solved At:** Nov 1, 2026, 11:16 AM
+- **Runtime:** 3
+ms
+- **Memory:** 46.22
+MB
+- **Solved At:** Nov 1, 2026, 11:17 AM
 
 ---
 *Synced automatically with [CodeSync](https://github.com).*
