@@ -11,10 +11,11 @@
 ## Submission Details
 
 - **Platform:** LeetCode
-- **Language:** python3
+- **Language:** java
 - **Runtime:** 0 ms
-- **Memory:** 18.4 MB
-- **Solved At:** Nov 4, 2026, 10:13 PM
+- **Memory:** 49.68
+MB
+- **Solved At:** Nov 4, 2026, 10:15 PM
 
 ---
 *Synced automatically with [CodeSync](https://github.com).*
